@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Space Grotesk';
+}
+
+:root{
+    --calc-bg: #FDFBEE;
+    --btn-num-bg: #57B4BA;
+    --btn-bg: #015551;
+    --btn-equal-bg: #FE4F2D;
+    --text-color:#000;
+
+}
+
+body{
+    background-color: #4444;
+    height: 100vh;
+    display: flex;
+}
+
+body.dark{
+    --calc-bg: #015551;
+    --btn-num-bg: #57B4BA;
+    --btn-bg: #FDFBEE;
+    --btn-equal-bg: #FE4F2D;
+    --text-color: #fff;
+    background-color: initial;
+    height: 100vh;
+    display: flex;
+}
+
+#container{
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px 15px;
+    border-radius: 10px;
+    background-color: var(--calc-bg);
+    justify-content: center;
+    transition: background-color .3s ease;
+}
+
+.container-display{
+    position: relative;
+}
+
+.display{
+    width: 100%;
+    padding: 10px 15px;
+    height: 120px;
+    border: 0;
+    outline: none;
+    font-size: 40px;
+    background-color: var(--calc-bg);
+    color: var(--text-color);
+    transition: background-color .3s ease;
+}
+
+.controls{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
+    height: 100%;
+    justify-items: center;
+}
+
+.btn{
+    border-radius: 9999px;
+    border: none;
+    width: 70px;
+    height: 70px;
+    font-size: 25px;
+    background-color: var(--btn-bg);
+    transition: background-color .3s ease;
+}
+.num{
+    background-color: var(--btn-num-bg);
+}
+
+.btn[id="="]{
+    height: auto;
+    grid-row: span 2;
+    background-color: var(--btn-equal-bg);
+    font-size: 40px;
+}
+
+.previous{
+    color: var(--text-color);
+    font-size: 30px;
+    justify-self: end;
+    height: 30px    ;
+}
+
+/* TOGGLE */
+
+
+.toggle{
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.toggle-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .toggle-slot {
+    font-size: 10px;
+    position: relative;
+    height: 3.5em;
+    width: 7em;
+    border: 0px solid transparent;
+    border-radius: 10em;
+    background-color: var(--btn-bg);
+    transition: background-color 250ms;
+  }
+  
+  .toggle-checkbox:checked ~ .toggle-slot {
+    background-color: var(--btn-equal-bg);
+  }
+  
+  .toggle-button {
+    transform: translate(0.3em, 0.25em);
+    position: absolute;
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    background-color: #ffeccf;
+    box-shadow: inset 0px 0px 0px 0.75em var(--btn-equal-bg);
+    transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+  }
+  
+  .toggle-checkbox:checked ~ .toggle-slot .toggle-button {
+    background-color: var(--btn-num-bg);
+    box-shadow: inset 0px 0px 0px 0.75em white;
+    transform: translate(3.65em, 0.25em);
+  }
+  
+  .sun-icon {
+    position: absolute;
+    height: 6em;
+    width: 6em;
+    color: #ffbb52;
+  }
+  
+  .sun-icon-wrapper {
+    position: absolute;
+    height: 6em;
+    width: 6em;
+    opacity: 1;
+    transform: translate(2em, 2em) rotate(15deg);
+    transform-origin: 50% 50%;
+    transition: opacity 150ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+  }
+  
+  .toggle-checkbox:checked ~ .toggle-slot .sun-icon-wrapper {
+    opacity: 0;
+    transform: translate(3em, 2em) rotate(0deg);
+  }
+  
+  .moon-icon {
+    position: absolute;
+    height: 6em;
+    width: 6em;
+    color: white;
+  }
+  
+  .moon-icon-wrapper {
+    position: absolute;
+    height: 6em;
+    width: 6em;
+    opacity: 0;
+    transform: translate(11em, 2em) rotate(0deg);
+    transform-origin: 50% 50%;
+    transition: opacity 150ms, transform 500ms cubic-bezier(.26,2.5,.46,.71);
+  }
+  
+  .toggle-checkbox:checked ~ .toggle-slot .moon-icon-wrapper {
+    opacity: 1;
+    transform: translate(2em, 2em) rotate(-15deg);
+  }
